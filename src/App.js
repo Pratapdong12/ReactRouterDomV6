@@ -5,10 +5,13 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate,
   
 } from 'react-router-dom';
 import Admin from './Admin/Admin';
 import Products from './Products/Products';
+import Nav from './Common/Nav';
+
 
 
 const AppStyle = css`
@@ -26,11 +29,13 @@ function App() {
   return (
     <div className={AppStyle}>
       <Router>
+        
         <div className='Container'>
-          
+        <Nav />
           <Routes>
             <Route path='/' element={<Products />} />
             <Route path='/admin' element={<Admin />} />
+            <Route path='*' element={<Navigate to='/' />} />
             
           </Routes>
         </div>
