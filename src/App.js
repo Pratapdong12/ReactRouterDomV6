@@ -10,6 +10,8 @@ import {
 import Admin from './Admin/Admin';
 import Products from './Products/Products';
 import Nav from './Common/Nav';
+import ProductIndex from './Products/ProductIndex';
+import Product from './Products/Product';
 
 const AppStyle = css`
   margin: 50px auto;
@@ -29,7 +31,10 @@ function App() {
         <div className='Container'>
           <Nav />
           <Routes>
-            <Route path='/' element={<Products />} />
+            <Route path='/' element={<Products />}>
+              <Route path='/' element={<ProductIndex />} />
+              <Route path=':id' element={<Product />} />
+            </Route>
             <Route path='/admin' element={<Admin />} />
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>
