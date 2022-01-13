@@ -1,15 +1,15 @@
-import React from "react";
-import { css } from "@emotion/css";
+import React from 'react';
+import { css } from '@emotion/css';
 
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Navigate,
-} from "react-router-dom";
-import Admin from "./Admin/Admin";
-import Products from "./Products/Products";
-import Nav from "./Common/Nav";
+} from 'react-router-dom';
+import Admin from './Admin/Admin';
+import Products from './Products/Products';
+import Nav from './Common/Nav';
 
 const AppStyle = css`
   margin: 50px auto;
@@ -26,14 +26,12 @@ function App() {
   return (
     <div className={AppStyle}>
       <Router>
-        <div className="Container">
+        <div className='Container'>
           <Nav />
           <Routes>
-            <Route path="/" element={<Products />}>
-              <Route path="/" element={<div>I am inside products</div>} />
-            </Route>
-            <Route path="/admin" element={<Admin />} />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path='/' element={<Products />} />
+            <Route path='/admin' element={<Admin />} />
+            <Route path='*' element={<Navigate to='/' />} />
           </Routes>
         </div>
       </Router>
