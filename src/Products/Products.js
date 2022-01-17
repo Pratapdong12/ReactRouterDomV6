@@ -1,6 +1,6 @@
-import React from 'react';
-import { css } from '@emotion/css';
-import { Outlet } from 'react-router-dom';
+import React from "react";
+import { css } from "@emotion/css";
+import { Outlet } from "react-router-dom";
 
 const ProductsStyle = css`
   display: flex;
@@ -14,8 +14,7 @@ const ProductsStyle = css`
 function Products() {
   return (
     <div className={ProductsStyle}>
-      <img src='/assets/img/logo.svg' alt='Burger' className='logo' />
-      Products
+      <img src="/assets/img/logo.svg" alt="Burger" className="logo" />
       <Outlet />
     </div>
   );

@@ -4,5 +4,14 @@ export const listProducts = async () => {
     return await response.json();
   }
 
-  throw new Error('Can not fetch data');
+  throw new Error("Can not fetch data");
+};
+
+export const retrieveProduct = async (id) => {
+  const response = await fetch(`/api/products/${id}`);
+  if (response.ok) {
+    return await response.json();
+  }
+
+  throw new Error("Can not fetch data");
 };
