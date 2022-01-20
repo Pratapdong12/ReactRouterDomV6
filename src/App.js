@@ -6,6 +6,7 @@ import {
   Routes,
   Route,
   Navigate,
+  useRoutes,
 } from "react-router-dom";
 import Admin from "./Admin/Admin";
 import Products from "./Products/Products";
@@ -23,14 +24,28 @@ const AppStyle = css`
   }
 `;
 
-function App() {
+const MyRoutes = () => {
   const [authenticated] = useState(true);
+  const routes = useRoutes([
+    { path: "/*", element: <Products /> },
+    {
+      path: "/admin/*",
+      element: authenticated ? <Admin /> : <Navigate to="/" />,
+    },
+    { path: "*", element: <Navigate to="/" /> },
+  ]);
+  return routes;
+};
+
+function App() {
+  // const [authenticated] = useState(true);
   return (
     <div className={AppStyle}>
       <Router>
         <div className="Container">
           <Nav />
-          <Routes>
+          <MyRoutes />
+          {/* <Routes>
             <Route path="/*" element={<Products />} />
             <Route
               path="admin/*"
@@ -41,7 +56,7 @@ function App() {
               }
             />
             <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          </Routes> */}
         </div>
       </Router>
     </div>
