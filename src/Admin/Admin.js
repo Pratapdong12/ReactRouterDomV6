@@ -32,6 +32,7 @@ function Admin() {
       <Routes>
         <Route path="/" element={<ProductIndex />} />
         <Route path="/new" element={<ProductEdit />} />
+        <Route path=":id" element={<ProductEdit />} />
       </Routes>
     </div>
   );
